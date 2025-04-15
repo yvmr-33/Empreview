@@ -1,0 +1,7 @@
+node_modules
+public/images/banners/* 
+public/images/company/*
+public/images/photos/*
+public/others/*
+logs.txt
+errors.txt
