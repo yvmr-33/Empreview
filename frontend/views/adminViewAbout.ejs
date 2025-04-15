@@ -1,0 +1,64 @@
+<div class="container mt-3">
+    <div class="">
+        <a href="./">
+            <i class="fa-solid fa-arrow-left"> Back</i>
+        </a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div>
+            <div class="input-group mb-3 d-flex justify-content-center align-items-center " style="width: auto;">
+                <div >
+                    <img id="photo-preview" class="rounded-circle " style="height: 200px; width: 200px;object-fit: cover; " src="<%=company.photoPath%>">
+                    <div class="spinner-border position-absolute d-none" role="status" style="margin-top: 85px; z-index: 2;margin-left: -115px;" id="spinner-for-company-photo">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <input type="file" id="photo-input" class="d-none" accept="image/*" name="company-photo">
+                <abbr title="photo of the company (optional)" class="initialism text-decoration-none">
+                <label for="photo-input" class="rounded-circle d-flex justify-content-end  border border-white" style="width: 0%; height: 0%;" >
+                    <i class="fa-regular fa-pen-to-square fa-2xl position-absolute" style="color: #747c8b;margin-top: -85px; margin-right: 20px;"></i>
+                </label>
+                </abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2 row d-flex justify-content-center" >
+        <div class="col-11 col-md-10 col-lg-8 col-xl-6 glass p-3 rounded">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Company name</span>
+                <input type="text" class="form-control" placeholder="Recipient's username" readonly id="companyNameInput" value="<%=company.companyName%>">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-group-text">about</span>
+                <textarea class="form-control" aria-label="With textarea" readonly id="aboutInput" placeholder="about"><%=company.about%></textarea>
+            </div>
+
+            <div class="input-group mt-3">
+                <span class="input-group-text" id="basic-addon2">No of employee's</span>
+                <input type="text" class="form-control" readonly value="<%=company.noOfEmployee%>">
+            </div>
+            <div class="input-group mt-3" id="companyIdGroup">
+                <span class="input-group-text" id="basic-addon2">Organisation id</span>
+                <input type="text" class="form-control " value="<%=company.shortCompanyId%>" id="reset-company-id-edit" readonly>
+                <button type="button" class="btn btn-primary" id="reset-company-id-button"><i class="fa-solid fa-arrow-rotate-right " id="reset-button-icon"></i> Reset</button>
+            </div>
+            <div class="d-flex justify-content-end mt-3" id="buttons-div">
+                <div id="edit-button-div">
+                    <button type="button" class="btn btn-warning" id="edit-button">Edit</button>
+                </div>
+                <div id="edit-submit-div" class="d-none">
+                    <button type="button" class="btn btn-outline-success" id="edit-submit">submit</button>
+                    <button type="button" class="btn btn-secondary" id="edit-close">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<button data-bs-target="#modal" id="modal-shower-butoon" data-bs-toggle="modal" class="d-none"></button>

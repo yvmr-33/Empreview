@@ -1,0 +1,137 @@
+<div class="mt-3 container">
+  <a href="/v" id="back-button">
+      <i class="fa-solid fa-arrow-left"> Back</i>
+  </a>
+</div>
+
+
+<div class="container h1 text-center text-info-emphasis mt-2">
+  Welcome to <%=companyName%>
+</div>
+
+<div class="d-flex justify-content-center">
+<div class="row row-cols-1 row-cols-lg-3 row-cols-md-2  g-4 mt-2 container ">
+    <div class="col">
+        <a href="/v/a/about" style="text-decoration: none;">
+        <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-building fa-2xl"></i>
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title" id="highlight-text">About organisation</h5>
+                  <p class="card-text">gives the general information</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </a>
+    </div>
+
+    <div class="col">
+        <a href="/v/a/employee" style="text-decoration: none;">
+        <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-user fa-2xl"></i>
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title" id="highlight-text">Employees view</h5>
+                  <p class="card-text">About all the employee</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+    </div>
+    
+    <div class="col">
+        <a href="/v/a/settings" style="text-decoration: none;">
+        <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-gear fa-2xl"></i>
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title" id="highlight-text">Settings</h5>
+                  <p class="card-text">edit the all company Settings</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+    </div>
+
+    <div class="col">
+        <a href="/v/a/add" style="text-decoration: none;">
+        <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-user-plus fa-2xl"></i>
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title" id="highlight-text">Add the user</h5>
+                  <p class="card-text">give permission to user or add new user</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+    </div>
+
+    <%if(role=="admin"){%>
+    <div class="col" id="change-admin">
+      <a href="#" style="text-decoration: none;">
+      <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-4 d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-user-tie fa-2xl"></i>
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title" id="highlight-text">change</h5>
+                <p class="card-text">if you want to become admin and employee</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+  </div>
+  <%}%>
+
+    
+</div>
+
+</div>
+
+
+<script>
+  const changeAdmin = document.getElementById("change-admin");
+  changeAdmin.addEventListener("click",()=>{
+    const confirm = window.confirm("Are you sure you want to become admin and employee?");
+    if(confirm){
+      var xhr = new XMLHttpRequest();
+    xhr.open("PUT", "/api/rolesAndRequest/changeRoleToAdmin", true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            let response = JSON.parse(xhr.responseText);
+            if(xhr.status==200){
+                alertToast(response.msg);
+                changeAdmin.remove();
+            }
+            else{
+                alertToast(err.msg);
+            }
+        }
+    };
+
+    xhr.send();
+    }
+  });
+
+</script>

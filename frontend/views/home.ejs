@@ -1,0 +1,137 @@
+<style>
+    /* Add custom styles here */
+
+    .navbar {
+      background-color: #007bff;
+    }
+    .jumbotron {
+      background-color: #007bff;
+      color: #fff;
+      padding: 4rem;
+      margin-bottom: 0;
+    }
+    .feature-section {
+      background-color: #fff;
+      padding: 4rem 0;
+    }
+    .review-section {
+      padding: 4rem 0;
+    }
+    .contact-section {
+      background-color: #f8f9fa;
+      padding: 4rem 0;
+    }
+    .gallery-section {
+      background-color: #fff;
+      padding: 4rem 0;
+    }
+    .gallery-item {
+      margin-bottom: 2rem;
+    }
+    .auth-buttons {
+      margin-top: 10px;
+    }
+
+  </style>
+
+
+  <!-- Animate.css link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+
+  <div class="jumbotron animate__animated animate__fadeIn">
+    <div class="container">
+      <h1 class="display-4">Welcome to Empreview</h1>
+      <p class="lead">Empower your organization with effective employee reviews and feedback.</p>
+      <hr class="my-4">
+      <p>Share insights, comments, and more in a controlled manner with admin supervision.</p>
+
+      <!-- Signup and Login buttons -->
+      <div class="auth-buttons">
+        <a class="btn btn-warning " href="/signup" role="button">Sign Up</a>
+        <a class="btn btn-secondary " href="/login" role="button">Login</a>  (login to enjoy the features)
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="feature-section animate__animated animate__fadeIn">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Performance Tracker</h2>
+          <p>Efficiently manage employee reviews with our user-friendly platform.</p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Access Control</h2>
+          <p>Enable secure and controlled access with admin supervision and permissions.</p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Collaborative Communication</h2>
+          <p>Facilitate commenting each other among team members with admin permissions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="contact-section animate__animated animate__fadeIn" id="contact-us">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required name="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required name="email">
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required name="msg"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+const fin = document.getElementById("contact-form");
+async function formSubmission(event){
+    event.preventDefault();
+    event.srcElement[3].disabled=true;
+    var formData= new FormData(this);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", `/api/contact?email=${formData.get("email")}&msg=${formData.get("msg")}&name=${formData.get("name")}`, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            let response = JSON.parse(xhr.responseText);
+            if(xhr.status==200){
+              alertToast("Message sent successfully");
+              event.srcElement[3].disabled=false;
+              event.srcElement.reset();
+            }
+            else{
+              event.srcElement[3].disabled=false;
+              alertToast("Something went wrong");
+            }
+        }
+    };
+
+    xhr.send();
+
+}
+
+fin.addEventListener("submit",formSubmission);
+
+
+  </script>

@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <div class="d-flex justify-content-center">
+        <div>
+            <div class="input-group mb-3 d-flex justify-content-center align-items-center " style="width: auto;">
+                <div >
+                    <img id="photo-preview" class="rounded-circle " style="height: 200px; width: 200px; " src="<%=re[0].photoPath[0]%>">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2 row d-flex justify-content-center" >
+        <div class="col-11 col-md-10 col-lg-8 col-xl-6 glass p-3 rounded">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Company name</span>
+                <input type="text" class="form-control" placeholder="Recipient's username" readonly id="companyNameInput" value="<%=re[0].companyName[0]%>">
+            </div>
+            
+            <div class="input-group">
+                <span class="input-group-text">about</span>
+                <textarea class="form-control" aria-label="With textarea" readonly id="aboutInput" placeholder="about"><%=re[0].about[0]%></textarea>
+            </div>
+
+            <div class="input-group mt-3">
+                <span class="input-group-text" id="basic-addon2">No of employee's</span>
+                <input type="text" class="form-control" readonly value="<%=re[0].noOfEmployee[0]%>">
+            </div>
+
+            <div class="d-flex justify-content-end mt-3" id="buttons-div">
+                <div id="edit-submit-div" >
+                    <button type="button" class="btn btn-success" id="join-button" onclick='selection("join")'>Join</button>
+                    <button type="button" class="btn btn-danger" id="reject-button" onclick='selection("reject")'>Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

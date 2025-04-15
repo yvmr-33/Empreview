@@ -1,0 +1,76 @@
+<div class="container mt-3">
+    <div class="mt-3 ">
+        <a href="/" id="back-button">
+            <i class="fa-solid fa-arrow-left"> Back</i>
+        </a>
+      </div>
+    <div class="row d-flex justify-content-center">
+    <div class="col-11 col-md-10 col-lg-8 col-xl-6 border  glass rounded">
+        <div class="h2  text-center mb-2 mt-3 p-3 text-info-emphasis">Sign Up</div>
+        <div id="whole-page-message-shower"></div>
+        <div class="h6 text-sm-center mb-3 text-success-emphasis">choose your banner and photo(optional)<img src="./website/downarrow.png" height="40px" class="position-absolute" style="margin-left: -10px;"></div>
+        <form id="form-signup" class="needs-validation">
+        <div class="mt-3" style="width: 100%;">
+            <div  style="width: 100%;">
+                <input type="file" id="banner-input" class="d-none" accept="image/*" name="banner">
+                <abbr title="banner that will make you look better (optional)" class="initialism text-decoration-none" >
+                    <label for="banner-input" class="d-flex justify-content-end align-items-start" style="height: 100px; width: 100%; background-color: #dadde2;">
+                        <i class="fa-regular fa-pen-to-square fa-xl position-absolute" style="color: #747c8b; margin-top: 7px;"></i>
+                        <img id="banner-preview" class="d-none" style="height: 100%;width: 100%; object-fit: cover;" >
+                    </label>
+                </abbr>
+            </div>
+            <div class="input-group mb-3 d-flex justify-content-center align-items-center " style="margin-top: -70px; width: auto;">
+                <input type="file" id="photo-input" class="d-none" accept="image/*" name="photo">
+                <abbr title="photo of you (optional)" class="initialism text-decoration-none">
+                <label for="photo-input" class="rounded-circle d-flex justify-content-center align-items-center border border-white" style="height: 100px; width: 100px; background-color: #dadde2;">
+                    <i class="fa-regular fa-pen-to-square fa-2xl position-absolute" style="color: #747c8b;"></i>
+                    <img id="photo-preview" class="rounded-circle d-none" style="height: 100%;width: 100%;object-fit: cover;" >
+                </label>
+                </abbr>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Enter your name" aria-label="Username" aria-describedby="basic-addon1" name="name" required>
+                <div class="invalid-tooltip">
+                    please provide name
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="Enter your Email" aria-label="Recipient's username" aria-describedby="basic-addon2" name="email" required>
+                <span class="input-group-text" id="basic-addon2">Email</span>
+                <div class="invalid-tooltip" id="email-error-shower">
+                    please provide email
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Create your password</span>
+                <input type="password" class="form-control" placeholder="Enter the password" aria-label="Server" name="password" required>
+                <div class="invalid-tooltip">
+                    please provide password
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="confirm the password" aria-label="Server" name="confirm-password" required>
+                <span class="input-group-text">Confirm your password</span>
+                <div class="invalid-tooltip">
+                    password doesnot macth
+                </div>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text">about</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="about you" name="about" required></textarea>
+                <div class="invalid-tooltip">
+                    please provide about section
+                </div>
+            </div>
+            <div class="d-flex mt-2 mb-2 justify-content-between">
+                <a href="/login" class="icon-link icon-link-hover">aldready have account?</a>
+                <button class="btn btn-success" type="sumbit" id="submit-button">Submit</button>
+            </div>
+
+        </div>
+        </form>
+    </div>
+    </div>
+</div>

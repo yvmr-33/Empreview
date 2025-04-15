@@ -1,0 +1,77 @@
+
+
+<div class="container">
+    <div class="mt-3 mb-3">
+      <a href="/v/a/employee" id="back-button">
+          <i class="fa-solid fa-arrow-left"> Back</i>
+      </a>
+    </div>
+    <%if(banner!='default'){%>
+    <div style="height:150px; border-radius:1rem 1rem  0 0; width: 100%; overflow: hidden;">
+        <img src="<%-banner%>" style="width: 100%;height:100%; object-fit: cover;">
+    </div>
+    <%}else{%>
+      <div style="height:150px; border-radius:1rem 1rem  0 0; width: 100%; overflow: hidden; background-color: lightgray;">
+      </div>
+    <%}%>
+
+    <div class=" glass p-1 " style="border-radius: 0 0 1rem 1rem ; ">
+      <div class="ms-md-5 d-flex d-md-inline justify-content-center">
+        <img src='<%=photo%>' class="rounded-circle ms-md-5" style="height: 150px; width: 150px; object-fit: cover;border-radius:50%; margin-top:-90px; border:4px solid white; ">
+      </div>
+       <div> &nbsp;</div>
+
+      <div class="d-md-flex flex-wrap" >
+        <div class="p-2 flex-grow-1">
+          <div class="d-flex d-md-inline align-items-center flex-column">
+              <h4 class="ms-md-5"><%=name%></h4>
+              <h6 class="ms-md-5"  onclick="toggleText(this)" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 230px; cursor: pointer;"><%=about%></h6>
+              <div class="d-flex ms-md-5">
+                <div class="rounded" style="width: 200px;height: 7px; background-color: white;">
+                    <div style="width: <%=rating*20%>%;height: 7px; background-color: yellow;z-index: 9999;"></div>
+                </div>
+                <div style="margin-top: -9px;"> &nbsp;&nbsp;(<%=Math.round(rating*10)/10%>/5)(<%=noOfRating%>)</div>
+              </div>
+              <div class="input-group mt-2 ms-md-5 input-group-sm" style="width: 230px;">
+                <span class="input-group-text" id="basic-addon1">comments/user</span>
+                <input type="number" class="form-control"  value="<%=noOfCommentsAllowed%>" min="0" id="no-of-comments-input">
+                <button class="btn btn-primary" type="button" onclick="changeNoOfrating()">Save</button>
+              </div>
+          </div>
+          
+        </div>
+        <div class="flex-grow-1 mt-5 mt-md-0">
+          <div class="d-flex align-items-center flex-column">
+            <div class="d-flex flex-column">
+              <a class="btn btn-outline-danger btn-sm mb-3" href="#" onclick="deleteEmployeeModelMaker()">Remove from organisation</a>
+              <%if(isAdmin){%>
+                <a class="btn btn-outline-danger btn-sm mb-3" href="#" onclick="changeRole('employee',this)">Demotivate to employee</a>
+              <%}else{%>
+                <a class="btn btn-outline-success btn-sm mb-3" href="#" onclick="changeRole('both',this)">Promote to admin</a>
+              <%}%>
+              <a class="btn btn-warning btn-sm"  id="permission-link">Give permission to commet</a>
+            </div>
+            <h3 class="mt-3">Comments on that person</h3>
+            
+            <div id="commet-box-container">
+            <div style="color:  gray;" class="placeholder-glow">
+              <div class="glass p-3 m-3 rounded" style="width: 250px;">
+                <h5>Name:-<span class="placeholder col-6"></span></h5>
+
+
+                <h6>rating: <span class="placeholder col-6"></span></h6>
+
+                <h6 >comment:- <span class="placeholder col-6"></span></h6>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,136 @@
+
+<div class="container">
+    <div class="mt-3">
+        <a href="#" id="back-button">
+            <i class="fa-solid fa-arrow-left"> Back</i>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center" >
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2  g-4 mt-2 container d-flex align-items-stretch" id="main-page">
+            <div class="col">
+                <a style="text-decoration: none;" onclick="addRequestBox()">
+                <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;cursor: pointer;">
+                    <div class="row g-0">
+                      <div class="col-4 d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-code-pull-request fa-2xl"></i>
+                      </div>
+                      <div class="col-8">
+                        <div class="card-body">
+                          <h5 class="card-title" id="highlight-text">requests sent to organisation </h5>
+                          <p class="card-text">requests that are sent to the organisation</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a style="text-decoration: none;" onclick="addEmployeeBox()">
+                <div class="card mb-3 custom-card p-3 glass" style="max-width: 540px;cursor: pointer;">
+                    <div class="row g-0">
+                      <div class="col-4 d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-user-plus fa-2xl"></i>
+                      </div>
+                      <div class="col-8">
+                        <div class="card-body">
+                          <h5 class="card-title" id="highlight-text">Add the new employee</h5>
+                          <p class="card-text">This will sent request the existing account employee to join</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+
+      <div class="container mt-4 d-none" id="addRequestBoxShow">
+        <form class="d-flex" id="search-form">
+            <input class="form-control me-2 glass" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2  g-4 mt-2" id="requests-box-from-company">          
+              <!-- place holder -->
+              <div class="card me-1 mt-1 glass " aria-hidden="true" style="width:300px;">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                      <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                      <span class="placeholder col-7"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-6"></span>
+                      <span class="placeholder col-8"></span>
+                    </p>
+                    <div class="row">
+                      <a class="btn btn-success disabled placeholder col-3 mx-1" aria-disabled="true"></a>
+                      <a class="btn btn-danger disabled placeholder col-3 mx-1" aria-disabled="true"></a>
+                    </div>
+                  
+                </div>
+              </div>
+
+
+              <div class="card me-1 mt-1 glass " aria-hidden="true" style="width:300px;">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                      <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                      <span class="placeholder col-7"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-6"></span>
+                      <span class="placeholder col-8"></span>
+                    </p>
+                    <div class="row">
+                      <a class="btn btn-success disabled placeholder col-3 mx-1" aria-disabled="true"></a>
+                      <a class="btn btn-danger disabled placeholder col-3 mx-1" aria-disabled="true"></a>
+                    </div>
+                  
+                </div>
+              </div>
+
+        </div>
+    </div>
+
+
+    <div class="row d-flex justify-content-center mt-4 d-none" id="addNewEmployeeBox" >
+      <div class="col-11 col-md-10 col-lg-8 col-xl-6 border rounded glass">
+        <div class="h2 mb-2 mt-1 pb-2 text-center text-info-emphasis">Add new employee</div>
+        <div class="h5 mb-2 mt-1 pb-2 text-center text-info" id="side-heading">please enter the employee mail to send request..</div>
+        <form id="form--add-new-Employee-email">
+          <div class="email-div">
+              <div class="mb-3 ">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon2">Email</span>
+                  <input type="email" class="form-control " placeholder="Enter the Email" aria-label="Recipient's username" aria-describedby="basic-addon2" name="email" id="email-input" required>
+                  <div class="invalid-tooltip" id="email-error-shower">
+                      please provide email
+                  </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Note</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="Note to send along with email (optional)" name="note" id="note-input"></textarea>
+                <div class="invalid-tooltip">
+                    please provide about section
+                </div>
+            </div>
+              <div>
+                <a href="#" onclick="alert('**Once you give the email tof employee it will check he is in company or not , if not then it will send the invite email to the employee with custom note, if it is not provied it will send default note**')">Know more!</a>
+                </div>
+              </div>
+              <div class="mb-3 d-flex justify-content-end">
+                  <button class="btn btn-success" type="submit" id="email-submit">Submit</button>
+              </div>
+          </div>
+      </form>
+      </div>
+    </div>
+    
+  </div>
