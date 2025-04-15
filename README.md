@@ -128,7 +128,7 @@ npm install npm@latest -g
 
 1. **Clone the Repository**
     ```sh
-    git clone https://github.com/sreecharan7/empreview.git
+    git clone https://github.com/yvmr-33/Empreview.git
     ```
 
 2. **Install NPM Packages**
